@@ -1,25 +1,26 @@
-﻿// Copyright and trademark notices at the end of this file.
+// Copyright and trademark notices at the end of this file.
 
 using SharperHacks.CoreLibs.Interfaces;
 
 namespace SharperHacks.CoreLibs.DelegateContainers;
 
-/// <summary>
-/// Base class for ActionParamTuple{T1..Tn} classes. Partial class.
-/// Static factories are in ActionParamTupleFactories.cs.
-/// </summary>
+// Base class for ActionParamTuple{T1..Tn} classes. Partial class.
+// Static factories are in ActionParamTupleFactories.cs.
+//
 public abstract partial record ActionParamTuple : IInvoke
 {
     /// <inheritdoc cref="IInvoke.Invoke()"/>
     public abstract void Invoke();
 }
 
-/// <summary>
-/// Single parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
+// Single parameter action container.
+//
+//  @T1
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//
 public record ActionParamTuple<T1>(Action<T1> Action, T1 Arg1)
     : ActionParamTuple, IInvoke
 {
@@ -27,14 +28,16 @@ public record ActionParamTuple<T1>(Action<T1> Action, T1 Arg1)
     public override void Invoke() => Action(Arg1);
 }
 
-/// <summary>
-/// Two parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
+// Two parameter action container.
+//
+//  @T1
+//  @T2
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//
 public record ActionParamTuple<T1, T2>(Action<T1, T2> Action, T1 Arg1, T2 Arg2)
     : ActionParamTuple, IInvoke
 {
@@ -42,16 +45,18 @@ public record ActionParamTuple<T1, T2>(Action<T1, T2> Action, T1 Arg1, T2 Arg2)
     public override void Invoke() => Action(Arg1, Arg2);
 }
 
-/// <summary>
-/// Three parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
+// Three parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//
 public record ActionParamTuple<T1, T2, T3>(
     Action<T1, T2, T3> Action, T1 Arg1, T2 Arg2, T3 Arg3)
     : ActionParamTuple, IInvoke
@@ -60,18 +65,20 @@ public record ActionParamTuple<T1, T2, T3>(
     public override void Invoke() => Action(Arg1, Arg2, Arg3);
 }
 
-/// <summary>
-/// Four parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
+// Four parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//
 public record ActionParamTuple<T1, T2, T3, T4>(
     Action<T1, T2, T3, T4> Action, T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4)
     : ActionParamTuple, IInvoke
@@ -80,20 +87,22 @@ public record ActionParamTuple<T1, T2, T3, T4>(
     public override void Invoke() => Action(Arg1, Arg2, Arg3, Arg4);
 }
 
-/// <summary>
-/// Five parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
+// Five parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5>(
     Action<T1, T2, T3, T4, T5> Action, T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5)
     : ActionParamTuple, IInvoke
@@ -102,23 +111,24 @@ public record ActionParamTuple<T1, T2, T3, T4, T5>(
     public override void Invoke() => Action(Arg1, Arg2, Arg3, Arg4, Arg5);
 }
 
-
-/// <summary>
-/// Six paramter action.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
+// Six parameter action.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6>(
     Action<T1, T2, T3, T4, T5, T6> Action, 
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6)
@@ -129,24 +139,26 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6>(
 }
 
 
-/// <summary>
-/// Seven parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
+// Seven parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7>(
     Action<T1, T2, T3, T4, T5, T6, T7> Action,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7)
@@ -157,26 +169,28 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7>(
 }
 ;
 
-/// <summary>
-/// Eight parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
+// Eight parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8> Action,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8)
@@ -186,28 +200,30 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8>(
     public override void Invoke() => Action(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8);
 }
 
-/// <summary>
-/// Nine parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
+// Nine parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9> Action,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9)
@@ -217,30 +233,32 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
     public override void Invoke() => Action(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9);
 }
 
-/// <summary>
-/// Ten parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
+// Ten parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//  @T10
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//  @Arg10
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> Action,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9, T10 Arg10)
@@ -250,32 +268,34 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
     public override void Invoke() => Action(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, Arg10);
 }
 
-/// <summary>
-/// Eleven parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
+// Eleven parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//  @T10
+//  @T11
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//  @Arg10
+//  @Arg11
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     T11>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> Action,
@@ -287,34 +307,36 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     public override void Invoke() => Action(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, Arg10, Arg11);
 }
 
-/// <summary>
-/// Twelve parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
+// Twelve parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//  @T10
+//  @T11
+//  @T12
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//  @Arg10
+//  @Arg11
+//  @Arg12
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     T11, T12>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> Action,
@@ -326,36 +348,38 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     public override void Invoke() => Action(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, Arg10, Arg11, Arg12);
 }
 
-/// <summary>
-/// Thirteen parameter action ctonainer.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
+// Thirteen parameter action ctonainer.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//  @T10
+//  @T11
+//  @T12
+//  @T13
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//  @Arg10
+//  @Arg11
+//  @Arg12
+//  @Arg13
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     T11, T12, T13>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> Action,
@@ -368,38 +392,40 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
             Arg11, Arg12, Arg13);
 }
 
-/// <summary>
-/// Fourteen parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <typeparam name="T14"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
-/// <param name="Arg14"></param>
+// Fourteen parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//  @T10
+//  @T11
+//  @T12
+//  @T13
+//  @T14
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//  @Arg10
+//  @Arg11
+//  @Arg12
+//  @Arg13
+//  @Arg14
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     T11, T12, T13, T14>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> Action,
@@ -412,40 +438,42 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
             Arg11, Arg12, Arg13, Arg14);
 }
 
-/// <summary>
-/// Fifteen parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <typeparam name="T14"></typeparam>
-/// <typeparam name="T15"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
-/// <param name="Arg14"></param>
-/// <param name="Arg15"></param>
+// Fifteen parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//  @T10
+//  @T11
+//  @T12
+//  @T13
+//  @T14
+//  @T15
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//  @Arg10
+//  @Arg11
+//  @Arg12
+//  @Arg13
+//  @Arg14
+//  @Arg15
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     T11, T12, T13, T14, T15>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> Action,
@@ -458,42 +486,44 @@ public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
             Arg11, Arg12, Arg13, Arg14, Arg15);
 }
 
-/// <summary>
-/// Sixteen parameter action container.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <typeparam name="T14"></typeparam>
-/// <typeparam name="T15"></typeparam>
-/// <typeparam name="T16"></typeparam>
-/// <param name="Action"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
-/// <param name="Arg14"></param>
-/// <param name="Arg15"></param>
-/// <param name="Arg16"></param>
+// Sixteen parameter action container.
+//
+//  @T1
+//  @T2
+//  @T3
+//  @T4
+//  @T5
+//  @T6
+//  @T7
+//  @T8
+//  @T9
+//  @T10
+//  @T11
+//  @T12
+//  @T13
+//  @T14
+//  @T15
+//  @T16
+//
+// Parameters:
+//  @Action
+//  @Arg1
+//  @Arg2
+//  @Arg3
+//  @Arg4
+//  @Arg5
+//  @Arg6
+//  @Arg7
+//  @Arg8
+//  @Arg9
+//  @Arg10
+//  @Arg11
+//  @Arg12
+//  @Arg13
+//  @Arg14
+//  @Arg15
+//  @Arg16
+//
 public record ActionParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
     T11, T12, T13, T14, T15, T16>(
     Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> Action,

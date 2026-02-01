@@ -1,25 +1,18 @@
-﻿// Copyright and trademark notices at the end of this file.
+// Copyright and trademark notices at the end of this file.
 
 using SharperHacks.CoreLibs.Interfaces;
 
 namespace SharperHacks.CoreLibs.DelegateContainers;
 
-/// <summary>
-/// Base class for FuncParamTuple{TResult, T1..Tn}
-/// </summary>
+// Base class for FuncParamTuple{TResult, T1..Tn}
+//
 public abstract partial record FuncParamTuple<TResult> : IInvoke<TResult>
 {
     /// <inheritdoc cref="IInvoke{T}.Invoke()"/>
     public abstract TResult Invoke();
 }
 
-/// <summary>
-/// Single parameter Func Tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
+// Single parameter Func Tuple.
 public record FuncParamTuple<T1, TResult>(Func<T1, TResult> Func, T1 Arg1) 
     : FuncParamTuple<TResult>
 {
@@ -27,15 +20,7 @@ public record FuncParamTuple<T1, TResult>(Func<T1, TResult> Func, T1 Arg1)
     public override TResult Invoke() => Func(Arg1);
 }
 
-/// <summary>
-/// Two parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
+// Two parameter Func tuple.
 public record FuncParamTuple<T1, T2, TResult>(Func<T1, T2, TResult> Func,
     T1 Arg1, T2 Arg2)
     : FuncParamTuple<TResult>
@@ -44,17 +29,7 @@ public record FuncParamTuple<T1, T2, TResult>(Func<T1, T2, TResult> Func,
     public override TResult Invoke() => Func(Arg1, Arg2);
 }
 
-/// <summary>
-/// Three parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
+// Three parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, TResult>(Func<T1, T2, T3, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3)
     : FuncParamTuple<TResult>
@@ -63,19 +38,7 @@ public record FuncParamTuple<T1, T2, T3, TResult>(Func<T1, T2, T3, TResult> Func
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3);
 }
 
-/// <summary>
-/// Four parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
+// Four parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4)
     : FuncParamTuple<TResult>
@@ -84,21 +47,7 @@ public record FuncParamTuple<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, TResu
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3, Arg4);
 }
 
-/// <summary>
-/// Five parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
+// Five parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, TResult>(Func<T1, T2, T3, T4, T5, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5)
     : FuncParamTuple<TResult>
@@ -107,23 +56,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, TResult>(Func<T1, T2, T3, T4, T
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3, Arg4, Arg5);
 }
 
-/// <summary>
-/// Six parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
+// Six parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, TResult>(
     Func<T1, T2, T3, T4, T5, T6, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6)
@@ -133,25 +66,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, TResult>(
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6);
 }
 
-/// <summary>
-/// Seven parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
+// Seven parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7)
@@ -161,27 +76,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, TResult>(
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7);
 }
 
-/// <summary>
-/// Eight parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
+// Eight parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8)
@@ -191,29 +86,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8);
 }
 
-/// <summary>
-/// 
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
+// Nine paramter func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9)
@@ -223,31 +96,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9);
 }
 
-/// <summary>
-/// Ten parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
+// Ten parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9, T10 Arg10)
@@ -257,33 +106,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult>(
     public override TResult Invoke() => Func(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, Arg10);
 }
 
-/// <summary>
-/// Elleven parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
+// Elleven parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TResult> Func,
     T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9, T10 Arg10,
@@ -295,35 +118,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TResu
             Arg11);
 }
 
-/// <summary>
-/// Twelve parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
+// Twelve parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
     T12, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> Func,
@@ -336,37 +131,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
             Arg11, Arg12);
 }
 
-/// <summary>
-/// Thirteen parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
+// Thirteen parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
     T12, T13, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> Func,
@@ -379,39 +144,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
             Arg11, Arg12, Arg13);
 }
 
-/// <summary>
-/// Fourteen parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <typeparam name="T14"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
-/// <param name="Arg14"></param>
+// Fourteen parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
     T12, T13, T14, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TResult> Func,
@@ -424,41 +157,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
             Arg11, Arg12, Arg13, Arg14);
 }
 
-/// <summary>
-/// Fifteen parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <typeparam name="T14"></typeparam>
-/// <typeparam name="T15"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
-/// <param name="Arg14"></param>
-/// <param name="Arg15"></param>
+// Fifteen parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
     T12, T13, T14, T15, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TResult> Func,
@@ -471,43 +170,7 @@ public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
             Arg11, Arg12, Arg13, Arg14, Arg15);
 }
 
-/// <summary>
-/// Sixteen parameter Func tuple.
-/// </summary>
-/// <typeparam name="T1"></typeparam>
-/// <typeparam name="T2"></typeparam>
-/// <typeparam name="T3"></typeparam>
-/// <typeparam name="T4"></typeparam>
-/// <typeparam name="T5"></typeparam>
-/// <typeparam name="T6"></typeparam>
-/// <typeparam name="T7"></typeparam>
-/// <typeparam name="T8"></typeparam>
-/// <typeparam name="T9"></typeparam>
-/// <typeparam name="T10"></typeparam>
-/// <typeparam name="T11"></typeparam>
-/// <typeparam name="T12"></typeparam>
-/// <typeparam name="T13"></typeparam>
-/// <typeparam name="T14"></typeparam>
-/// <typeparam name="T15"></typeparam>
-/// <typeparam name="T16"></typeparam>
-/// <typeparam name="TResult"></typeparam>
-/// <param name="Func"></param>
-/// <param name="Arg1"></param>
-/// <param name="Arg2"></param>
-/// <param name="Arg3"></param>
-/// <param name="Arg4"></param>
-/// <param name="Arg5"></param>
-/// <param name="Arg6"></param>
-/// <param name="Arg7"></param>
-/// <param name="Arg8"></param>
-/// <param name="Arg9"></param>
-/// <param name="Arg10"></param>
-/// <param name="Arg11"></param>
-/// <param name="Arg12"></param>
-/// <param name="Arg13"></param>
-/// <param name="Arg14"></param>
-/// <param name="Arg15"></param>
-/// <param name="Arg16"></param>
+// Sixteen parameter Func tuple.
 public record FuncParamTuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
     T12, T13, T14, T15, T16, TResult>(
     Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, TResult> Func,

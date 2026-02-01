@@ -1,6 +1,5 @@
 // Copyright and trademark notices at the end of this file.
 
-#if true
 using Microsoft.Extensions.Logging;
 
 using SharperHacks.CoreLibs.Constraints;
@@ -8,26 +7,23 @@ using SharperHacks.CoreLibs.Interfaces;
 
 namespace SharperHacks.CoreLibs.DelegateContainers;
 
-/// <summary>
-/// An IDisposable container of actions to perform on dispose.
-/// </summary>
+// An IDisposable container of actions to perform on dispose.
+//
 public class AtScopeExitAction : AtScopeExitBase
 {
     private List<IInvoke>? _managedActions;
     private List<IInvoke>? _unmanagedActions;
 
-    /// <summary>
-    /// Constructor.
-    /// </summary>
-    /// <param name="managedActions">
-    /// An array of actions to perform in the managed actions block of the IDisposable pattern.
-    /// </param>
-    /// <param name="unmanagedActions">
-    /// An array of action to perform in the unmanaged actions block of the IDisposable pattern.
-    /// </param>
-    /// <param name="logger">
-    /// An ILogger to log events to, if it is not null.
-    /// </param>
+    // Constructor.
+    //
+    // Parameters:
+    //  @managedActions
+    //   An array of actions to perform in the managed actions block of the IDisposable pattern.
+    //  @unmanagedActions
+    //   An array of action to perform in the unmanaged actions block of the IDisposable pattern.
+    //  @logger
+    //   An ILogger to log events to, if it is not null.
+    //
     public AtScopeExitAction(
         ActionParamTuple[] managedActions,
         ActionParamTuple[] unmanagedActions,
@@ -64,7 +60,6 @@ public class AtScopeExitAction : AtScopeExitBase
         RunActions(_unmanagedActions);
     }
 }
-#endif
 
 // Copyright Joseph W Donahue and Sharper Hacks LLC (US-WA)
 //

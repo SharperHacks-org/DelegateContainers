@@ -1,6 +1,6 @@
-![SharperHacks logo](SHLLC-Logo.jpg)
-# SharperHacks.CoreLibs.Miscellaneous
-## ActionWrappers
+![SharperHacks logo](https://raw.githubusercontent.com/SharperHacks-org/Assets/main/Images/SHLLC-Logo.png)
+# Action and Func wrapper
+## SharperHacks.CoreLibs.DelegateContainers
 
 Some useful bits for working with delegate types Action and Func.
 
@@ -16,3 +16,6 @@ Nuget: https://www.nuget.org/packages/SharperHacks.CoreLibs.DelegateContainers
 - net8.0
 - net9.0
 - net10.0
+
+### Classes
+

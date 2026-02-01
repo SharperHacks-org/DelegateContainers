@@ -1,23 +1,20 @@
-﻿// Copyright and trademark notices at the end of this file.
+// Copyright and trademark notices at the end of this file.
 
 using SharperHacks.CoreLibs.Constraints;
 
 namespace SharperHacks.CoreLibs.DelegateContainers;
 
-/// <summary>
-/// Stores a list of <see cref="FuncParamTuple{TResult}"/> for later execution.
-/// </summary>
+// Stores a list of @FuncParamTuple<TResult> for later execution.
+//
 public record FuncRunner<TResult>
 {
-    /// <summary>
-    /// Get the list of IFuncParamTuples.
-    /// </summary>
+    // Get the list of IFuncParamTuples.
     public List<FuncParamTuple<TResult>> FuncParamTuples { get; init; }
 
-    /// <summary>
-    /// Constructor.
-    /// </summary>
-    /// <param name="funcParamTuples"></param>
+    // Constructor.
+    //
+    // Parameters:
+    //  @funcParamTuples
     public FuncRunner(params FuncParamTuple<TResult>[] funcParamTuples)
     {
         Verify.AreNotNull(funcParamTuples);
@@ -25,9 +22,7 @@ public record FuncRunner<TResult>
         FuncParamTuples = new(funcParamTuples);
     }
 
-    /// <summary>
-    /// Sequentially invoke the <see cref="FuncParamTuples"/> and discard the results.
-    /// </summary>
+    // Sequentially invoke the @FuncParamTuples and discard the results.
     public void Run()
     {
         foreach (var tuple in FuncParamTuples)
@@ -36,17 +31,16 @@ public record FuncRunner<TResult>
         }
     }
 
-    /// <summary>
-    /// Sequentially invoke all the FuncParamTuples, using <paramref name="eval"/>
-    /// to determine success or failure across the entire run.
-    /// </summary>
-    /// <param name="eval">
-    /// A delegate type taking TResult and retruning true if the result of Invoke()
-    /// is considered a success, false otherwise.
-    /// </param>
-    /// <returns>
-    /// The number of times <paramref name="eval"/> returned false.
-    /// </returns>
+    // Sequentially invoke all the FuncParamTuples, using <paramref name="eval"/>
+    // to determine success or failure across the entire run.
+    //
+    // @eval
+    //  A delegate type taking TResult and retruning true if the result of Invoke()
+    //  is considered a success, false otherwise.
+    //
+    // Returns:
+    //  The number of times <paramref name="eval"/> returned false.
+    //
     public int Run(Func<TResult, bool> eval)
     {
         Verify.IsNotNull(eval);
@@ -61,12 +55,12 @@ public record FuncRunner<TResult>
         return failCount;
     }
 
-    /// <summary>
-    /// Sequentially invoke all the FuncParamTuples, storing and returning
-    /// the results in the <paramref name="results"/> parameter.
-    /// </summary>
-    /// <param name="results"></param>
-    /// <returns></returns>
+    // Sequentially invoke all the FuncParamTuples, storing and returning
+    // the results in the <paramref name="results"/> parameter.
+    //
+    // Parameters:
+    //  @results
+    //
     public List<TResult> Run(List<TResult> results)
     {
         foreach (var tuple in FuncParamTuples)
@@ -77,11 +71,11 @@ public record FuncRunner<TResult>
         return results;
     }
 
-    /// <summary>
-    /// Run the FuncParamTuple at index <paramref name="idx"/> and return the result.
-    /// </summary>
-    /// <param name="idx"></param>
-    /// <returns></returns>
+    // Run the FuncParamTuple at index @idx and return the result.
+    //
+    // Parameters:
+    //  @idx
+    //
     public TResult Run(int idx)
     {
         return FuncParamTuples[idx].Invoke();

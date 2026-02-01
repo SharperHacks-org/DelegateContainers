@@ -1,4 +1,4 @@
-﻿// Copyright and trademark notices at the end of this file.
+// Copyright and trademark notices at the end of this file.
 
 using Microsoft.Extensions.Logging;
 
@@ -6,44 +6,39 @@ using SharperHacks.CoreLibs.LogWrappers;
 
 namespace SharperHacks.CoreLibs.DelegateContainers;
 
-/// <summary>
-/// Base class for AtScopeExit* clases. Encapsulates the IDisposable pattern.
-/// </summary>
+// Base class for AtScopeExit* clases. Encapsulates the IDisposable pattern.
+//
 public abstract class AtScopeExitBase : IDisposable
 {
-    /// <summary>
-    /// Indicates whether Dispose(bool) has been called already.
-    /// </summary>
+    // Indicates whether Dispose(bool) has been called already.
+    //
     protected bool DisposedValue { get; set; }
 
-    /// <summary>
-    /// Get or set the logger interface to use.
-    /// </summary>
+    // Get or set the logger interface to use.
+    //
     protected ILogger? Logger { get; set; }
 
-    /// <summary>
-    /// Called only when Dispose(true) and disposedValue is false.
-    /// This is never called on the finalizer.
-    /// </summary>
+    // Called only when Dispose(true) and disposedValue is false.
+    // This is never called on the finalizer.
+    //
     protected abstract void DisposeManaged();
 
-    /// <summary>
-    /// Called when Dispose(true) and disposedValue is false.
-    /// Always called in the finalizer, even if Dispose() is not called
-    /// for some reason.
-    /// </summary>
+    // Called when Dispose(true) and disposedValue is false.
+    // Always called in the finalizer, even if Dispose() is not called
+    // for some reason.
+    //
     protected abstract void DisposeUnmanaged();
 
-    /// <summary>
-    /// Constructor.
-    /// </summary>
-    /// <param name="logger"></param>
+    // Constructor.
+    //
+    // @logger
+    //
     protected AtScopeExitBase(ILogger? logger = null)
     {
         Logger = logger;
     }
 
-    /// <inheritdoc cref="IDisposable.Dispose()"/>
+    // @IDisposable.Dispose()
     protected virtual void Dispose(bool disposing)
     {
         if (DisposedValue) return;
@@ -72,16 +67,15 @@ public abstract class AtScopeExitBase : IDisposable
         DisposedValue = true;
     }
 
-    /// <summary>
-    /// Finalizer for IDisposable pattern.
-    /// </summary>
+    // Finalizer for IDisposable pattern.
+    //
     ~AtScopeExitBase()
     {
         // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
         Dispose(disposing: false);
     }
 
-    /// <inheritdoc cref="IDisposable.Dispose()"/>
+    // @IDisposable.Dispose()
     public void Dispose()
     {
         // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
