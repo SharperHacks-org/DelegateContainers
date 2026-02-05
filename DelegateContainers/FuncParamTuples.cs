@@ -6,9 +6,9 @@ namespace SharperHacks.CoreLibs.DelegateContainers;
 
 // Base class for FuncParamTuple{TResult, T1..Tn}
 //
-public abstract partial record FuncParamTuple<TResult> : IInvoke<TResult>
+public abstract partial record FuncParamTuple<TResult> : IInvokable<TResult>
 {
-    /// <inheritdoc cref="IInvoke{T}.Invoke()"/>
+    /// <inheritdoc cref="IInvokable{T}.Invoke()"/>
     public abstract TResult Invoke();
 }
 
