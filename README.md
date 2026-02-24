@@ -1,5 +1,7 @@
 ![SharperHacks logo](https://raw.githubusercontent.com/SharperHacks-org/Assets/main/Images/SHLLC-Logo.png)
-# Action and Func wrapper
+# THIS PROJECT MOVED TO [codeberg.org](https://codeberg.org/SharperHacks-org/DelegateContainers).
+# This repo will be removed.
+## Action and Func wrapper
 ## SharperHacks.CoreLibs.DelegateContainers
 
 Some useful bits for working with delegate types Action and Func.
